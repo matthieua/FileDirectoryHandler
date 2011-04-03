@@ -7,16 +7,13 @@
  * To change this template use File | Settings | File Templates.
  */
 
-class Dir {
+class Dir extends FileDirectoryHandler {
 
-  private $dirName;
-
-  public function __construct($dirName) {
-    $this->dirName = $dirName;
+  public function __construct($name) {
+    $this->name = $name;
   }
 
   public function create() {
-
     return mkdir($this->getDirFullPath(), '0777', 1);
   }
 
@@ -28,44 +25,8 @@ class Dir {
     return is_dir($this->getDirFullPath()) ? true : false;
   }
 
-  public function getDirName() {
-    return $this->dirName;
-  }
-
-  public function setDirName($dirname) {
-    $this->dirName = $dirname;
-  }
-
   public function getDirFullPath() {
-    return self::getDirRootFullPath() . DS . $this->dirName;
+    return parent::getDirRootFullPath() . DS . $this->name;
   }
-
-
-  public static function getDirRootFullPath() {
-    return PATH_ROOT . DS . APP_ROOT_DIR;
-  }
-
-  public static function getDirListing($path) {
-    $dirRootListing = array();
-    $dir = opendir($path);
-
-    // get each entry
-    while ($entryName = readdir($dir)) {
-      $dirRootListing[] = $entryName;
-    }
-
-    // Filter only directories
-    $dirRootListing = array_filter($dirRootListing, 'Dir::isDir');
-    $dirRootListing = array_filter($dirRootListing, 'Dir::isHidden');
-    sort($dirRootListing);
-    return $dirRootListing;
-  }
-
-  public static function isDir($name) {
-    return (is_dir(Dir::getDirRootFullPath() . DS . $name));
-  }
-
-  public static function isHidden($name) {
-    return (!preg_match('/^\./', $name));
-  }
+  
 }
