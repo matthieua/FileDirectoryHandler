@@ -9,36 +9,34 @@
 
 class Notification {
   private $message;
-  private $type;
+  private $flag;
 
 
-  public function __construct($message, $type = 'good') {
+  public function __construct($message = '', $flag = 'good') {
     $this->message = $message;
-    $this->type = $type;
+    $this->flag = $flag;
   }
 
-  public function getType() {
-    return $this->type;
+  public function getFlag() {
+    return $this->flag;
   }
   
-  public function setType($type) {
-    if (false != preg_match('/good|bad/i', strtolower($type)) && ($this->type != strtolower($type))) {
-      $this->type = strtolower($type);
+  public function setFlag($flag) {
+    if (false != preg_match('/good|bad/i', strtolower($flag)) && ($this->flag != strtolower($flag))) {
+      $this->flag = strtolower($flag);
     }
   }
 
-
   public function getMessage() {
     if (!empty($this->message)) {
-      return "<div class=\"{$this->type}\"><strong>{$this->message}</strong></div>";
+      return "<div class=\"{$this->flag}\"><strong>{$this->message}</strong></div>";
     }
     return false;
   }
 
-  public function setMessage($message) {
-    if (!empty($message)) {
-      $this->message = $message;
-    }
+  public function setMessage($message, $flag = '') {
+    $this->message = $message;
+    if (!empty($flag)) $this->flag = $flag;
   }
 
 

@@ -9,31 +9,23 @@
 
 class Dir {
 
-  private $dirRoot = 'app';
   private $dirName;
 
   public function __construct($dirName) {
     $this->dirName = $dirName;
   }
 
-  // Create the directory here
   public function create() {
-    return mkdir($this->getFullPath(), '777');
+
+    return mkdir($this->getDirFullPath(), '0777', 1);
   }
 
-  public function isValid() {
-    if (!$this->exists() && (!preg_match('/\s/', $this->dirName))) {
-      return true;
-    }
-    return false;
+  public function delete() {
+    return rmdir($this->getDirFullPath());
   }
 
-
-  private function exists() {
-    if (is_dir($this->getFullPath())) {
-      return true;
-    }
-    return false;
+  public function exists() {
+    return is_dir($this->getDirFullPath()) ? true : false;
   }
 
   public function getDirName() {
@@ -44,8 +36,36 @@ class Dir {
     $this->dirName = $dirname;
   }
 
-  private function getFullPath() {
-    return APP_ROOT . DS . $this->dirRoot . DS . $this->dirName;
+  public function getDirFullPath() {
+    return self::getDirRootFullPath() . DS . $this->dirName;
   }
 
+
+  public static function getDirRootFullPath() {
+    return PATH_ROOT . DS . APP_ROOT_DIR;
+  }
+
+  public static function getDirListing($path) {
+    $dirRootListing = array();
+    $dir = opendir($path);
+
+    // get each entry
+    while ($entryName = readdir($dir)) {
+      $dirRootListing[] = $entryName;
+    }
+
+    // Filter only directories
+    $dirRootListing = array_filter($dirRootListing, 'Dir::isDir');
+    $dirRootListing = array_filter($dirRootListing, 'Dir::isHidden');
+    sort($dirRootListing);
+    return $dirRootListing;
+  }
+
+  public static function isDir($name) {
+    return (is_dir(Dir::getDirRootFullPath() . DS . $name));
+  }
+
+  public static function isHidden($name) {
+    return (!preg_match('/^\./', $name));
+  }
 }
