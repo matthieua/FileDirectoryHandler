@@ -61,7 +61,4 @@ class FileDirectoryHandler
     {
         return (!preg_match('/^\./', $name));
     }
-
-
-
 }

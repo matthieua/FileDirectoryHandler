@@ -13,6 +13,3 @@ DEFINED('PATH_ROOT') ? null : DEFINE('PATH_ROOT', __DIR__);
 
 DEFINED('APP_ROOT_DIR') ? null : DEFINE('APP_ROOT_DIR', 'app');
 
-DEFINED('WWW_ROOT') ? null : DEFINE('WWW_ROOT', 'http://localhost::8888/sandbox/FileDirectoryHandler/');
-
-
