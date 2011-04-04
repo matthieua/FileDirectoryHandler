@@ -10,50 +10,58 @@
 require_once ('Dir.php');
 require_once ('File.php');
 
-class FileDirectoryHandler {
+class FileDirectoryHandler
+{
 
-  protected $name;
+    protected $name;
+    protected $context;
 
-  public function getName() {
-    return $this->name;
-  }
-
-  public function setName($name) {
-    $this->name = $name;
-  }
-
-  public static function isHidden($name) {
-    return (!preg_match('/^\./', $name));
-  }
-
-  public static function isDir($name) {
-    return (is_dir(self::getDirRootFullPath() . DS . $name));
-  }
-
-  public static function isFile($name) {
-    return (is_file(self::getDirRootFullPath() . DS . $name));
-  }
-
-  public static function getDirRootFullPath() {
-    return PATH_ROOT . DS . APP_ROOT_DIR;
-  }
-
-  public static function getDirListing($path) {
-    $dirRootListing = array();
-    $dir = opendir($path);
-
-    // get each entry
-    while ($entryName = readdir($dir)) {
-      $dirRootListing[] = $entryName;
+    function __construct($name, $context = '')
+    {
+        $this->name = $name;
+        $this->context = $context;
     }
 
-    closedir($dir);
+    public function getName()
+    {
+        return $this->name;
+    }
 
-    // Filter only directories
-    $dirRootListing = array_filter($dirRootListing, 'Dir::isHidden');
-    sort($dirRootListing);
-    return $dirRootListing;
-  }
+    public function setName($name)
+    {
+        $this->name = $name;
+    }
+
+    public function getContext()
+    {
+        return $this->context;
+    }
+
+    public function setContext($context)
+    {
+        $this->context = $context;
+    }
+
+    public function getPath()
+    {
+        return (empty($this->context) ? $this->name : $this->context . DS . $this->name);
+    }
+
+    public function isDir()
+    {
+        return (is_dir($this->getPath()));
+    }
+
+    public function isFile()
+    {
+        return (is_file($this->getPath()));
+    }
+
+    public static function isHidden($name)
+    {
+        return (!preg_match('/^\./', $name));
+    }
+
 
 
 }

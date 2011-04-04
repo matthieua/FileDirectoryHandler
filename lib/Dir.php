@@ -7,26 +7,40 @@
  * To change this template use File | Settings | File Templates.
  */
 
-class Dir extends FileDirectoryHandler {
+class Dir extends FileDirectoryHandler
+{
+    public function create()
+    {
+        return mkdir($this->getPath(), 0777, true);
+    }
 
-  public function __construct($name) {
-    $this->name = $name;
-  }
+    public function delete()
+    {
+        return rmdir($this->getPath());
+    }
 
-  public function create() {
-    return mkdir($this->getDirFullPath(), '0777', 1);
-  }
+    public function exists()
+    {
+        return is_dir($this->getPath());
+    }
 
-  public function delete() {
-    return rmdir($this->getDirFullPath());
-  }
 
-  public function exists() {
-    return is_dir($this->getDirFullPath()) ? true : false;
-  }
+    public function getDirListing()
+    {
+        $dirRootListing = array();
 
-  public function getDirFullPath() {
-    return parent::getDirRootFullPath() . DS . $this->name;
-  }
-  
+        $dir = opendir($this->getPath());
+
+        // get each entry
+        while ($entryName = readdir($dir)) {
+            $dirRootListing[] = $entryName;
+        }
+
+        closedir($dir);
+
+        // Filter only directories
+        $dirRootListing = array_filter($dirRootListing, 'FileDirectoryHandler::isHidden');
+        sort($dirRootListing);
+        return $dirRootListing;
+    }
 }

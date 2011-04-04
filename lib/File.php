@@ -7,34 +7,39 @@
  * To change this template use File | Settings | File Templates.
  */
 
-class File extends FileDirectoryHandler{
+class File extends FileDirectoryHandler
+{
 
-  private $content;
+    private $content;
 
-  public function __construct($name, $content = '') {
-    $this->name = $name;
-    if (!empty($content)) $this->content = $content;
-  }
+    public function __construct($name, $context = '', $content = '')
+    {
+        parent::__construct($name, $context);
+        $this->content = $content;
+    }
 
-  public function create() {
-    return file_put_contents(parent::getDirRootFullPath() . DS . $this->name, $this->content);
-  }
+    public function getContent()
+    {
+        return $this->content;
+    }
 
-  public function delete() {
-    return unlink(Dir::getDirRootFullPath() . DS . $this->name);
-  }
+    public function setContent($content)
+    {
+        $this->content = $content;
+    }
 
-  public function exists() {
-    return is_file(Dir::getDirRootFullPath() . DS . $this->name);
-  }
+    public function create()
+    {
+        return file_put_contents($this->getPath(), $this->content);
+    }
 
-  public function getContent() {
-    return $this->content;
-  }
+    public function delete()
+    {
+        return unlink($this->getPath());
+    }
 
-  public function setContent($content) {
-    $this->content = $content;  
-  }
-
- 
+    public function exists()
+    {
+        return is_file($this->getPath());
+    }
 }
