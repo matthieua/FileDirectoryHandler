@@ -1,15 +1,14 @@
 <?php
 /**
- * Created by PhpStorm.
- * User: Matthieu
- * Date: Apr 3, 2011
- * Time: 4:50:01 PM
- * To change this template use File | Settings | File Templates.
+ * Created by matthieu.
+ * User: matthieu
+ * Date: 4/04/11
+ * Time: 2:33 PM
  */
+ 
 
 class File extends FileDirectoryHandler
 {
-
     private $content;
 
     public function __construct($name, $context = '', $content = '')

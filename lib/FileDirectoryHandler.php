@@ -1,11 +1,11 @@
 <?php
 /**
- * Created by PhpStorm.
- * User: Matthieu
- * Date: Apr 3, 2011
- * Time: 5:04:50 PM
- * To change this template use File | Settings | File Templates.
+ * Created by matthieu.
+ * User: matthieu
+ * Date: 4/04/11
+ * Time: 2:33 PM
  */
+ 
 
 require_once ('Dir.php');
 require_once ('File.php');

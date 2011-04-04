@@ -1,11 +1,11 @@
 <?php
 /**
- * Created by PhpStorm.
- * User: Matthieu
- * Date: Apr 3, 2011
- * Time: 1:58:23 PM
- * To change this template use File | Settings | File Templates.
+ * Created by matthieu.
+ * User: matthieu
+ * Date: 4/04/11
+ * Time: 2:33 PM
  */
+ 
 
 class Notification {
   private $message;
