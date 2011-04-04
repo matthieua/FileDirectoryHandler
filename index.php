@@ -85,7 +85,7 @@ $dirRootListing = $appDir->getDirListing();
     <style>
         body {
             width: 960px;
-            margin: 20px auto;
+            margin: 0 auto;
             color: #333;
             font-family: 'Helvetica Neue', arial, helvetica, sans-serif;
         }
@@ -96,14 +96,14 @@ $dirRootListing = $appDir->getDirListing();
 
         }
 
-        .good, .bad {
+        div.good, div.bad {
             color: green;
             background-color: #FFFBE7;
             padding: 4px 0;
             border-bottom: 1px solid #CCCCCC;
         }
 
-        .bad {
+        div.bad {
             color: red;
         }
     </style>

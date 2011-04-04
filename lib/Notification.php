@@ -11,7 +11,6 @@ class Notification {
   private $message;
   private $flag;
 
-
   public function __construct($message = '', $flag = 'good') {
     $this->message = $message;
     $this->flag = $flag;
