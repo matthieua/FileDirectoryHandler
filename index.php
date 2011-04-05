@@ -7,7 +7,7 @@
 <?php
 // Init the autoloader
 $autoloader = new \misc\Autoloader();
-$autoloader->registerAutoload(LIB_PATH);
+$autoloader->registerAutoload(LIB_DIR);
 
 // Init Notification
 $notification = new \misc\Notification();
