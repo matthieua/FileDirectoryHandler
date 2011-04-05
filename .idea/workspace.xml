@@ -26,8 +26,22 @@
       <file leaf-file-name="index.php" pinned="false" current="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/index.php">
           <provider selected="true" editor-type-id="text-editor">
-            <state line="14" column="27" selection-start="326" selection-end="326" vertical-scroll-proportion="-5.2156863">
-              <folding />
+            <state line="9" column="40" selection-start="221" selection-end="221" vertical-scroll-proportion="-3.3529413">
+              <folding>
+                <marker date="1302001972000" expanded="true" signature="2706:4304" placeholder="..." />
+                <marker date="1302001972000" expanded="true" signature="2713:2811" placeholder="..." />
+                <marker date="1302001972000" expanded="true" signature="2818:4304" placeholder="..." />
+                <marker date="1302001972000" expanded="true" signature="2827:2896" placeholder="..." />
+                <marker date="1302001972000" expanded="true" signature="2912:4304" placeholder="..." />
+                <marker date="1302001972000" expanded="true" signature="3059:3301" placeholder="..." />
+                <marker date="1302001972000" expanded="true" signature="3145:3216" placeholder="..." />
+                <marker date="1302001972000" expanded="true" signature="3409:3789" placeholder="..." />
+                <marker date="1302001972000" expanded="true" signature="3492:3565" placeholder="..." />
+                <marker date="1302001972000" expanded="true" signature="3638:3714" placeholder="..." />
+                <marker date="1302001972000" expanded="true" signature="3878:4304" placeholder="..." />
+                <marker date="1302001972000" expanded="true" signature="4002:4304" placeholder="..." />
+                <marker date="1302001972000" expanded="true" signature="4165:4304" placeholder="..." />
+              </folding>
             </state>
           </provider>
         </entry>
@@ -41,10 +55,19 @@
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="functions.php" pinned="false" current="true" current-in-tab="true">
+      <file leaf-file-name="functions.php" pinned="false" current="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/functions.php">
           <provider selected="true" editor-type-id="text-editor">
-            <state line="14" column="47" selection-start="261" selection-end="261" vertical-scroll-proportion="0.29392266">
+            <state line="10" column="0" selection-start="131" selection-end="131" vertical-scroll-proportion="0.0">
+              <folding />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="Autoloader.php" pinned="false" current="true" current-in-tab="true">
+        <entry file="file://$PROJECT_DIR$/lib/misc/Autoloader.php">
+          <provider selected="true" editor-type-id="text-editor">
+            <state line="64" column="30" selection-start="1301" selection-end="1301" vertical-scroll-proportion="0.7480663">
               <folding />
             </state>
           </provider>
@@ -91,7 +114,6 @@
   <component name="IdeDocumentHistory">
     <option name="changedFiles">
       <list>
-        <option value="$PROJECT_DIR$/lib/FILE.php" />
         <option value="$PROJECT_DIR$/lib/AppFileDirectoryHandler.php" />
         <option value="$PROJECT_DIR$/app/test.php" />
         <option value="$PROJECT_DIR$/lib/File.php" />
@@ -101,12 +123,13 @@
         <option value="$PROJECT_DIR$/lib/Notification.php" />
         <option value="$PROJECT_DIR$/lib/filesystem/File.php" />
         <option value="$PROJECT_DIR$/lib/filesystem/FileDirectoryHandler.php" />
-        <option value="$PROJECT_DIR$/lib/filesystem/Dir.php" />
         <option value="$PROJECT_DIR$/lib/misc/Notification.php" />
         <option value="$PROJECT_DIR$/lib/misc/Logging.php" />
         <option value="$PROJECT_DIR$/globals.php" />
-        <option value="$PROJECT_DIR$/index.php" />
         <option value="$PROJECT_DIR$/functions.php" />
+        <option value="$PROJECT_DIR$/lib/filesystem/Dir.php" />
+        <option value="$PROJECT_DIR$/index.php" />
+        <option value="$PROJECT_DIR$/lib/misc/Autoloader.php" />
       </list>
     </option>
   </component>
@@ -408,23 +431,9 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/lib/filesystem/Dir.php">
-      <provider selected="true" editor-type-id="text-editor">
-        <state line="42" column="69" selection-start="791" selection-end="791" vertical-scroll-proportion="0.0">
-          <folding />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/lib/misc/Logging.php">
       <provider selected="true" editor-type-id="text-editor">
         <state line="9" column="4" selection-start="95" selection-end="95" vertical-scroll-proportion="0.0">
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/index.php">
-      <provider selected="true" editor-type-id="text-editor">
-        <state line="14" column="27" selection-start="326" selection-end="326" vertical-scroll-proportion="-5.2156863">
           <folding />
         </state>
       </provider>
@@ -438,7 +447,42 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/functions.php">
       <provider selected="true" editor-type-id="text-editor">
-        <state line="14" column="47" selection-start="261" selection-end="261" vertical-scroll-proportion="0.29392266">
+        <state line="10" column="0" selection-start="131" selection-end="131" vertical-scroll-proportion="0.0">
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/lib/filesystem/Dir.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state line="42" column="69" selection-start="791" selection-end="791" vertical-scroll-proportion="0.0">
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/index.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state line="9" column="40" selection-start="221" selection-end="221" vertical-scroll-proportion="-3.3529413">
+          <folding>
+            <marker date="1302001972000" expanded="true" signature="2706:4304" placeholder="..." />
+            <marker date="1302001972000" expanded="true" signature="2713:2811" placeholder="..." />
+            <marker date="1302001972000" expanded="true" signature="2818:4304" placeholder="..." />
+            <marker date="1302001972000" expanded="true" signature="2827:2896" placeholder="..." />
+            <marker date="1302001972000" expanded="true" signature="2912:4304" placeholder="..." />
+            <marker date="1302001972000" expanded="true" signature="3059:3301" placeholder="..." />
+            <marker date="1302001972000" expanded="true" signature="3145:3216" placeholder="..." />
+            <marker date="1302001972000" expanded="true" signature="3409:3789" placeholder="..." />
+            <marker date="1302001972000" expanded="true" signature="3492:3565" placeholder="..." />
+            <marker date="1302001972000" expanded="true" signature="3638:3714" placeholder="..." />
+            <marker date="1302001972000" expanded="true" signature="3878:4304" placeholder="..." />
+            <marker date="1302001972000" expanded="true" signature="4002:4304" placeholder="..." />
+            <marker date="1302001972000" expanded="true" signature="4165:4304" placeholder="..." />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/lib/misc/Autoloader.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state line="64" column="30" selection-start="1301" selection-end="1301" vertical-scroll-proportion="0.7480663">
           <folding />
         </state>
       </provider>

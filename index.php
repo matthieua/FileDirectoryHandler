@@ -1,10 +1,15 @@
 <?php
   require_once 'globals.php';
   require_once 'functions.php';
+  require_once 'lib/misc/Autoloader.php';
 ?>
 
 <?php
-// init Notification
+// Init the autoloader
+$autoloader = new \misc\Autoloader();
+$autoloader->registerAutoload(LIB_PATH);
+
+// Init Notification
 $notification = new \misc\Notification();
 
 // Create the app folder if needed
