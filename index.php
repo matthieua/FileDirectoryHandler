@@ -1,22 +1,20 @@
 <?php
   require_once 'globals.php';
   require_once 'functions.php';
-  require_once 'lib/FileDirectoryHandler.php';
-  require_once 'lib/Notification.php';
 ?>
 
 <?php
 // init Notification
-$notification = new Notification();
+$notification = new \misc\Notification();
 
 // Create the app folder if needed
-$appDir = new Dir(APP_ROOT_DIR, PATH_ROOT);
+$appDir = new \filesystem\Dir(APP_ROOT_DIR, PATH_ROOT);
 if (!$appDir->exists()) $appDir->create();
 
 // Create a directory
 if (isset($_POST['addDirectory']) && !empty($_POST['dirName'])) {
     // Create Directory Instance
-    $dir = new Dir($_POST['dirName'], getAppFullPath());
+    $dir = new \filesystem\Dir($_POST['dirName'], getAppFullPath());
     // Check the name is valid
     if ($dir->exists()) {
         $notification->setMessage("The directory already exists", "bad");
@@ -35,7 +33,7 @@ if (isset($_POST['addDirectory']) && !empty($_POST['dirName'])) {
 // Create a file
 if (isset($_POST['addFile']) && !empty($_POST['fileName'])) {
     // Create File Instance
-    $file = new File($_POST['fileName'], getAppFullPath(), $_POST['fileNameContent']);
+    $file = new \filesystem\File($_POST['fileName'], getAppFullPath(), $_POST['fileNameContent']);
     // Check the name is valid
     if ($file->exists()) {
         $notification->setMessage("The file already exists", "bad");
@@ -52,7 +50,7 @@ if (isset($_POST['addFile']) && !empty($_POST['fileName'])) {
 }
 
 if (isset($_GET['dirname'])) {
-    $dir = new Dir(urldecode($_GET['dirname']), getAppFullPath());
+    $dir = new \filesystem\Dir(urldecode($_GET['dirname']), getAppFullPath());
     if ($dir->exists() && $dir->delete()) {
         $notification->setMessage('The folder has been deleted successfully', "good");
     } else {
@@ -63,7 +61,7 @@ if (isset($_GET['dirname'])) {
 }
 
 if (isset($_GET['filename'])) {
-    $file = new File(urldecode($_GET['filename']), getAppFullPath());
+    $file = new \filesystem\File(urldecode($_GET['filename']), getAppFullPath());
     if ($file->exists() && $file->delete()) {
         $notification->setMessage('The file has been deleted successfully', "good");
     } else {
@@ -82,36 +80,12 @@ $dirRootListing = $appDir->getDirListing();
 <!DOCTYPE html>
 <html>
 <head>
-    <style>
-        body {
-            width: 960px;
-            margin: 0 auto;
-            color: #333;
-            font-family: 'Helvetica Neue', arial, helvetica, sans-serif;
-        }
-
-        strong {
-            font-size: 13px;
-            padding: 10px 4px;
-
-        }
-
-        div.good, div.bad {
-            color: green;
-            background-color: #FFFBE7;
-            padding: 4px 0;
-            border-bottom: 1px solid #CCCCCC;
-        }
-
-        div.bad {
-            color: red;
-        }
-    </style>
+    <link rel="stylesheet" href="css/style.css">
     <title>App Directory Handler</title>
 </head>
 <body>
 <header>
-<?php if (isset($notification)) echo $notification->getMessage(); ?>
+    <?php if (isset($notification)) echo $notification; ?>
 </header>
 <div id="main">
     <h1>App Directory Handler</h1>
@@ -137,25 +111,25 @@ $dirRootListing = $appDir->getDirListing();
     <h3>Directory Content (<?php echo APP_ROOT_DIR; ?>)</h3>
 
     <div id="dir-liting">
-        <?php
+<?php
         if (empty($dirRootListing) || !$dirRootListing) : ?>
-        <em>empty directory</em>
-        <?php else: ?>
-        <ul>
-            <?php foreach ($dirRootListing as $item) :
-                $fileDirectory = new FileDirectoryHandler($item, getAppFullPath());
-            ?>
-            <li>
-                <?php echo $fileDirectory->getName(); ?>
-                <?php if ($fileDirectory->isFile()) : ?>
-                <a href="<?php echo 'index.php?filename=' . urlencode($fileDirectory->getName()); ?>">delete</a>
-                <?php else: ?>
-                <a href="<?php echo 'index.php?dirname=' . urlencode($fileDirectory->getName()); ?>">delete</a>
-                <?php endif; ?>
-            </li>
-            <?php endforeach; ?>
-        </ul>
-        <?php endif; ?>
+    <em>empty directory</em>
+    <?php else: ?>
+    <ul>
+        <?php foreach ($dirRootListing as $item) :
+        $fileDirectory = new \filesystem\FileDirectoryHandler($item, getAppFullPath());
+        ?>
+        <li>
+            <?php echo $fileDirectory->getName(); ?>
+            <?php if ($fileDirectory->isFile()) : ?>
+            <a href="<?php echo 'index.php?filename=' . urlencode($fileDirectory->getName()); ?>">delete</a>
+            <?php else: ?>
+            <a href="<?php echo 'index.php?dirname=' . urlencode($fileDirectory->getName()); ?>">delete</a>
+            <?php endif; ?>
+        </li>
+        <?php endforeach; ?>
+    </ul>
+    <?php endif; ?>
     </div>
 </div>
 <footer></footer>

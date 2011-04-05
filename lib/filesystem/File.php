@@ -5,7 +5,7 @@
  * Date: 4/04/11
  * Time: 2:33 PM
  */
- 
+namespace filesystem;
 
 class File extends FileDirectoryHandler
 {

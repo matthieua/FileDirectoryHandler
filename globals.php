@@ -3,5 +3,7 @@ DEFINED('DS') ? null : DEFINE('DS', DIRECTORY_SEPARATOR);
 
 DEFINED('PATH_ROOT') ? null : DEFINE('PATH_ROOT', __DIR__);
 
+DEFINED('LIB_PATH') ? null : DEFINE('LIB_PATH', 'lib');
+
 DEFINED('APP_ROOT_DIR') ? null : DEFINE('APP_ROOT_DIR', 'app');
 

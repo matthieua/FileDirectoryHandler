@@ -5,7 +5,8 @@
  * Date: 4/04/11
  * Time: 2:33 PM
  */
- 
+namespace filesystem;
+
 
 class Dir extends FileDirectoryHandler
 {
@@ -39,7 +40,7 @@ class Dir extends FileDirectoryHandler
         closedir($dir);
 
         // Filter only directories
-        $dirRootListing = array_filter($dirRootListing, 'FileDirectoryHandler::isHidden');
+        $dirRootListing = array_filter($dirRootListing, '\filesystem\FileDirectoryHandler::isHidden');
         sort($dirRootListing);
         return $dirRootListing;
     }

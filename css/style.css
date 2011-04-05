@@ -1,0 +1,7 @@
+body { width: 960px; margin: 0 auto; color: #333; font-family: 'Helvetica Neue', arial, helvetica, sans-serif; }
+strong { font-size: 13px; padding: 10px 4px; }
+
+/* NOTIFICATION */
+div.good, div.bad { color: green; background-color: #FFFBE7; padding: 4px 0; border-bottom: 1px solid #CCCCCC; }
+div.bad { color: red; }
+
