@@ -5,7 +5,7 @@
  * Date: 4/04/11
  * Time: 2:33 PM
  */
-namespace misc;
+namespace utils;
 
 class Notification
 {

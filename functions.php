@@ -5,7 +5,7 @@
  */
 function  getAppFullPath()
 {
-    return PATH_ROOT . DS . APP_ROOT_DIR;
+    return PATH_ROOT . DIRECTORY_SEPARATOR . APP_ROOT_DIR;
 }
 
 

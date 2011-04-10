@@ -4,7 +4,7 @@
  * Date: 5/04/11
  * Time: 8:50 PM
  */
-namespace misc;
+namespace utils;
 
 class Autoloader
 {
@@ -44,11 +44,13 @@ class Autoloader
         $pathAr = explode('\\', $className);
 
         // Get the path
-        $classPath = $this->path . DS;
+
+
+        $classPath = $this->path . DIRECTORY_SEPARATOR;
         $nPathAr = count($pathAr);
         foreach ($pathAr as $key => $path)
         {
-            $classPath .= (($key + 1) != $nPathAr) ?  $path . DS : $path .'.php';
+            $classPath .= (($key + 1) != $nPathAr) ?  $path . DIRECTORY_SEPARATOR : $path .'.php';
         }
 
         // Check if the file exists

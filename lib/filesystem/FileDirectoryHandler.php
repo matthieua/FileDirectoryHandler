@@ -44,7 +44,7 @@ class FileDirectoryHandler
 
     public function getPath()
     {
-        return (empty($this->context) ? $this->name : $this->context . DS . $this->name);
+        return (empty($this->context) ? $this->name : $this->context . DIRECTORY_SEPARATOR . $this->name);
     }
 
     public function isDir()

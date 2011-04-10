@@ -1,9 +1,7 @@
 <?php
-DEFINED('DS') ? null : DEFINE('DS', DIRECTORY_SEPARATOR);
+defined('PATH_ROOT') ? null : define('PATH_ROOT', __DIR__);
 
-DEFINED('PATH_ROOT') ? null : DEFINE('PATH_ROOT', __DIR__);
+defined('LIB_DIR') ? null : define('LIB_DIR', 'lib');
 
-DEFINED('LIB_DIR') ? null : DEFINE('LIB_DIR', 'lib');
-
-DEFINED('APP_ROOT_DIR') ? null : DEFINE('APP_ROOT_DIR', 'app');
+defined('APP_ROOT_DIR') ? null : define('APP_ROOT_DIR', 'app');
 

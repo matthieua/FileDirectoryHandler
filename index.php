@@ -1,16 +1,14 @@
 <?php
   require_once 'globals.php';
-  require_once 'functions.php';
-  require_once 'lib/misc/Autoloader.php';
-?>
+require_once 'functions.php';
+require_once 'lib/utils/Autoloader.php';
 
-<?php
 // Init the autoloader
-$autoloader = new \misc\Autoloader();
+$autoloader = new \utils\Autoloader();
 $autoloader->registerAutoload(LIB_DIR);
 
 // Init Notification
-$notification = new \misc\Notification();
+$notification = new \utils\Notification();
 
 // Create the app folder if needed
 $appDir = new \filesystem\Dir(APP_ROOT_DIR, PATH_ROOT);
@@ -79,9 +77,7 @@ if (isset($_GET['filename'])) {
 // Get the directory Listing
 $dirRootListing = $appDir->getDirListing();
 
-
 ?>
-
 <!DOCTYPE html>
 <html>
 <head>
