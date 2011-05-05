@@ -7,9 +7,6 @@
  */
 namespace filesystem;
 
-require_once ('Dir.php');
-require_once ('File.php');
-
 class FileDirectoryHandler
 {
 

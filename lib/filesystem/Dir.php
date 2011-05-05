@@ -7,6 +7,7 @@
  */
 namespace filesystem;
 
+require_once ('FileDirectoryHandler.php');
 
 class Dir extends FileDirectoryHandler
 {

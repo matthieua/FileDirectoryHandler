@@ -7,6 +7,8 @@
  */
 namespace filesystem;
 
+require_once ('FileDirectoryHandler.php');
+
 class File extends FileDirectoryHandler
 {
     private $content;
@@ -14,6 +16,7 @@ class File extends FileDirectoryHandler
     public function __construct($name, $context = '', $content = '')
     {
         parent::__construct($name, $context);
+
         $this->content = $content;
     }
 
@@ -29,7 +32,7 @@ class File extends FileDirectoryHandler
 
     public function create()
     {
-        return file_put_contents($this->getPath(), $this->content);
+        return (empty($this->content) ? fopen($this->getPath(), 'w') : file_put_contents($this->getPath(), $this->content));
     }
 
     public function delete()

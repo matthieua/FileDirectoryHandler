@@ -1,7 +1,48 @@
-body { width: 960px; margin: 0 auto; color: #333; font-family: 'Helvetica Neue', arial, helvetica, sans-serif; }
+body { width: 960px; margin: 0 auto 60px; color: #333; font-family: 'Helvetica Neue', arial, helvetica, sans-serif; }
 strong { font-size: 13px; padding: 10px 4px; }
+
+
+table { margin-bottom: 20px; width: 100%; }
+th { text-align: left; }
+tr:nth-child(even) { background-color:#eee; }
+td { padding: 4px; }
+
 
 /* NOTIFICATION */
 div.good, div.bad { color: green; background-color: #FFFBE7; padding: 4px 0; border-bottom: 1px solid #CCCCCC; }
 div.bad { color: red; }
 
+
+
+/* FORM */
+fieldset { border: none; margin: 0; padding: 0; display: none; }
+form section { float: left; width: 320px; padding-bottom: 20px; }
+label { cursor: pointer; }
+label span { color: blue;  font-size: 11px; }
+input, textarea { font-size: 13px; }
+textarea { padding: 8px 10px; }
+input{ width: 250px; border: 1px solid #999; padding: 8px 10px; }
+input[type="submit"] { border: none; color: #fff; background: #999; padding: 8px 10px; width: 960px; cursor: pointer; text-transform:uppercase; font-weight: bold; }
+input[type="submit"]:hover { background: #ccc; }
+
+
+
+
+
+
+
+.clearfix:after {
+	visibility: hidden;
+	display: block;
+	font-size: 0;
+	content: " ";
+	clear: both;
+	height: 0;
+}
+
+.clearfix { display: inline-block; }
+
+/* start commented backslash hack */
+* html .clearfix { height: 1%; }
+.clearfix { display: block; }
+/* close commented backslash hack */
